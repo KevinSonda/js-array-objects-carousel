@@ -21,3 +21,18 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+//definizione delle variabili
+let itemsContent = ''; //definizione della variabile che contine le immagini nella sezione principlae
+//ciclo l'array
+images.forEach((elem) => {
+    itemsContent += `
+    <div class="position-relative h-100">
+                            <img src="./img/${elem.image}" class="main-image" alt="${elem.title}">
+                                <div class="txt-image">
+                                    <h3>${elem.title}</h3>
+                                    <p>${elem.text}</p>
+                                </div>
+                            </div>
+    `
+});
