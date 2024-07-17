@@ -28,7 +28,7 @@ let itemsContent = ''; //definizione della variabile che contine le immagini nel
 images.forEach((elem) => {
     itemsContent += `
     <div class="position-relative h-100">
-                            <img src="./img/${elem.image}" class="main-image" alt="${elem.title}">
+                            <img src=".${elem.image}" class="main-image" alt="${elem.title}">
                                 <div class="txt-image">
                                     <h3>${elem.title}</h3>
                                     <p>${elem.text}</p>
@@ -36,3 +36,6 @@ images.forEach((elem) => {
                             </div>
     `
 });
+
+//vado a recuperare l'elemento del dom
+document.querySelector('#my-carousel-container .images').innerHTML = itemsContent;
