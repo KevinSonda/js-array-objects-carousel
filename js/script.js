@@ -24,11 +24,15 @@ const images = [
 
 //definizione delle variabili
 let itemsContent = ''; //definizione della variabile che contine le immagini nella sezione principlae
+let activeElement = 0;
+
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
 //ciclo l'array
 images.forEach((elem) => {
     itemsContent += `
-    <div class="position-relative h-100">
-                            <img src=".${elem.image}" class="main-image" alt="${elem.title}">
+    <div class="image position-relative h-100 d-none">
+                            <img src="./${elem.image}" class="main-image" alt="${elem.title}">
                                 <div class="txt-image">
                                     <h3>${elem.title}</h3>
                                     <p>${elem.text}</p>
@@ -39,3 +43,39 @@ images.forEach((elem) => {
 
 //vado a recuperare l'elemento del dom
 document.querySelector('#my-carousel-container .images').innerHTML = itemsContent;
+
+// recupero il primo elemento con la classe image
+console.log(document.querySelectorAll('.image'));
+console.log(document.querySelectorAll('.image')[activeElement]);
+
+let allImages = document.querySelectorAll('.image');
+allImages.[activeElement].classList.remove('d-none');
+
+// definisco il comportanento  del cilck sulla freccia
+
+next.addEventListener('click', function () {
+    mainImage.classList.add('d-none');
+
+    if(activeElement == allImages.length - 1){
+        activeElement = 0;
+    }
+    else{
+
+        activeElement++;
+    }
+
+    allImages[activeElement].classList.remove('d-none');
+});
+
+prev.addEventListener('click', function () {
+    mainImage.classList.add('d-none');
+
+    activeElement--;
+
+    allImages[activeElement].classList.remove('d-none');
+})
+
+
+
+
+
