@@ -14,3 +14,12 @@
     height: 400px;
     background-color: red;
 }
+.images{
+    height: 100%;
+    position: relative;
+}
+.main-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
